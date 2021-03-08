@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+<body> 
+<ui:composition template="/layouts/commonLayout.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+		         First Name: <h:inputText id="firstName" value = "#{user.firstName}" title="" /><h:message for="firstName"/><br />
+		         <br />
+		         Last Name: <h:inputText id="lastName" value = "#{user.lastName}" title="" /><h:message for="lastName"/><br />
+		         
+		         Email: <h:inputText id="email" value = "#{user.email}" title="" /><h:message for="email"/><br />
+		         
+		         Username: <h:inputText id="username" value = "#{user.userName}" title="" /><h:message for="username"/><br />
+		         
+		         Password: <h:inputText id="password" value = "#{user.password}" title="" />
+		         <h:message for="password"/><br />
+		         
+		         Phone Number: <h:inputText id="phoneNumner" value = "#{user.phoneNumber}" title="" />
+		         <h:message for="phoneNumber"/><br />
+		         
+		         Address: <h:inputText id="address" value = "#{user.address}" title="" />
+		         <h:message for="address"/><br />
+		         <h:commandButton value = "submit" action = "#{formController.service.addUser(user)}" />
+		</h:form>
+				<a href="Login.xhtml">Login</a>
+	</ui:define>
+</ui:composition>
+</body> 
+</html>

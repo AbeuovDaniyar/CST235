@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+<body> 
+<ui:composition template="/layouts/commonLayout.xhtml">
+	
+	<ui:define name="content">
+		Hello my name is: #{user.firstName} #{user.lastName}
+	
+		<h:dataTable value="#{orders.orders}" var = "o" styleClass="order-table" headerClass="order-table-header"
+		rowClasses = "order-table-odd, order-table-even">
+		
+			<h:column>
+				<f:facet name = "header">Order Number</f:facet>
+				#{o.orderNo}
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Product Name</f:facet>
+				#{o.productName}
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Price</f:facet>
+				#{o.price}
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Quantity</f:facet>
+				#{o.quantity}
+			</h:column>
+			
+		</h:dataTable>
+	</ui:define>
+</ui:composition>
+</body> 
+</html>

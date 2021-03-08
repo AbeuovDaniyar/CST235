@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<ui:composition template="/layouts/commonLayout.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+		         Product Name: <h:inputText id="name" value = "#{product.name}" title="" /><h:message for="name"/><br />
+		         <br />
+		         Product Developer: <h:inputText id="developer" value = "#{product.developer}" title="" /><h:message for="developer"/><br />
+		         
+		         Product Publisher: <h:inputText id="publisher" value = "#{product.publisher}" title="" /><h:message for="publisher"/><br />
+		         
+		         Product Platform: <h:inputText id="platform" value = "#{product.platform}" title="" /><h:message for="platform"/><br />
+		         
+		         Product price: <h:inputText id="price" value = "#{product.price}" title="" /><h:message for="price"/>
+		         <br />
+		         
+		         Product description: <h:inputText id="description" value = "#{product.description}" title="" /><h:message for="description"/>
+		         <br />
+		         
+		         <h:commandButton value = "Add product" action = "#{formController.productService.addProduct(product)}" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</body> 
+</html>

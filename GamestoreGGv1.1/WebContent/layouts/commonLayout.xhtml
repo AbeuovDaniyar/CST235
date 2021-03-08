@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+ <h:head>
+<h:outputStylesheet name="css/Page.css" />
+</h:head>  
+<h:body id="body"> 
+		<div id = "main-holder" align="center">
+			<div id = "header" align="center">
+				<ui:insert name= "header">
+					<ui:include src = "/layouts/commonHeader.xhtml" />
+				</ui:insert>
+			</div>
+			<div id = "content" align="center" style="color:black;">
+				<ui:insert name= "content">
+					<ui:include src = "/layouts/commonContent.xhtml" />
+				</ui:insert>
+			</div>
+			<div id = "footer" align="center" style="color:black;">
+				<ui:insert name= "footer">
+					<ui:include src = "/layouts/commonFooter.xhtml" />
+				</ui:insert>
+			</div>
+		</div>
+</h:body> 
+</html>
