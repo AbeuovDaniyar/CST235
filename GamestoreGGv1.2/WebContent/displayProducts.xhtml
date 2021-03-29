@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<h:outputStylesheet library="css" name="contentBody.css" />
+</h:head> 
+<body> 
+<ui:composition template="/layouts/commonLayout.xhtml">
+	
+	<ui:define name="content">
+		<h:dataTable value="#{formController.productService.products}" var = "o" 
+		styleClass="order-table" 
+		headerClass="order-table-header"
+		rowClasses = "order-table-odd, order-table-even">
+			<h:column>
+				<f:facet name = "header">ID</f:facet>
+				<h:outputText value="#{o.id}" />
+			</h:column>
+						
+			<h:column>
+				<f:facet name = "header">Product Name</f:facet>
+				<h:outputText value="#{o.name}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Developer</f:facet>
+				<h:outputText value="#{o.developer}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Publisher</f:facet>
+				<h:outputText value="#{o.publisher}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Platform</f:facet>
+				<h:outputText value="#{o.platform}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Description</f:facet>
+				<h:outputText value="#{o.description}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Price</f:facet>
+				<h:outputText value="#{o.price}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Delete</f:facet>
+				<h:form>
+				<h:commandButton action="#{formController.onDelete(o)}" value="Delete" />
+				</h:form>
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Edit</f:facet>
+				<h:form>
+				<h:commandButton action="#{formController.onEdit(o)}" value="Edit" />
+				</h:form>
+			</h:column>
+			
+		</h:dataTable>
+	</ui:define>
+</ui:composition>
+</body> 
+</html>

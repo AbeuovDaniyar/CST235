@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<ui:composition template="/layouts/commonLayout.xhtml">
+
+	<ui:define name="content">
+		<div class="edit-product">
+			<h:form>
+					 <h:inputHidden id="id" value = "#{product.id}" title="" /><h:message for="id"/><br />
+			         Product Name: <h:inputText id="name" value = "#{product.name}" title="" /><h:message for="name"/><br />
+			         <br />
+			         Product Developer: <h:inputText id="developer" value = "#{product.developer}" title="" /><h:message for="developer"/><br />
+			         <br />
+			         Product Publisher: <h:inputText id="publisher" value = "#{product.publisher}" title="" /><h:message for="publisher"/><br />
+			         <br />
+			         Product Platform: <h:inputText id="platform" value = "#{product.platform}" title="" /><h:message for="platform"/><br />
+			         <br />
+			         Product price: <h:inputText id="price" value = "#{product.price}" title="" /><h:message for="price"/>
+			         <br />
+			         
+			         Product description: <h:inputText id="description" value = "#{product.description}" title="" /><h:message for="description"/>
+			         <br />
+			         
+			         <h:commandButton value = "Update Product" action = "#{formController.onSubmitEdit()}" />
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+</body> 
+</html>
