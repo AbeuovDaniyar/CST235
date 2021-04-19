@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body>
+	<!-- Set the Layout and Title for this page -->
+	<ui:composition template="/layouts/commonLayout.xhtml">
+	<ui:define name="title">JSF Login Page</ui:define>
+	<ui:define name="content">
+		<!-- Login Form -User is gcu and Password is lopes -->
+		<div align="center"> 
+			<form  method="post" action="j_security_check">
+				Username: <h:inputText id="j_username" autocomplete="off" /><br/>
+				Password: <h:inputSecret id="j_password" autocomplete="off" /><br/>
+				<h:commandButton type="submit" value="Submit" />
+			</form>
+		</div>
+	</ui:define>
+	</ui:composition>
+</h:body>
+</html>

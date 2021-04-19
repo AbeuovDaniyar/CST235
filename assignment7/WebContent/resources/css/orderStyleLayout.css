@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+.order-table{
+	border:1px black solid;
+}
+
+.order-table-header{
+	
+}
+
+.order-table-odd{
+	background: #EEE;
+}
+
+.order-table-even{
+	background: white;
+}

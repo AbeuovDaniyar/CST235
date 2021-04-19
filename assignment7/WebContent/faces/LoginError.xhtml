@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body>
+	<!-- Set the Layout and Title for this page -->
+	<ui:composition template="/layouts/commonLayout.xhtml">
+	<ui:define name="title">JSF Login Error Page</ui:define>
+	<ui:define name="content">
+		<!-- Login Error Message -->
+		<div align="center"> 
+			Please enter a user name or password that is authorized to access this application. <br/>
+        	A user must that has been created in the <code>ApplicationRealm</code> realm and has been assigned to the <code>GcuUser</code> group.<br/>
+        	Use the add-user script located in the JBoss EAP bin directory to add a user.<br/><br/>
+    		<a href="TestResponse.xhtml">Return to Login</a>		
+    	</div>
+	</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

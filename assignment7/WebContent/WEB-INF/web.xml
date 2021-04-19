@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.1"
+ xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+ <display-name>assignment6a</display-name>
+ <context-param>
+  <param-name>javax.faces.INTERPRET_EMPTYSUBMBITTED_AS_NULL</param-name>
+  <param-value>true&gt;</param-value>
+ </context-param>
+ <servlet>
+  <servlet-name>Faces Servlet</servlet-name>
+  <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>Faces Servlet</servlet-name>
+  <url-pattern>*.jsf</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>Faces Servlet</servlet-name>
+  <url-pattern>*.xhtml</url-pattern>
+ </servlet-mapping>
+
+ <servlet-mapping>
+  <servlet-name>Resteasy Servlet</servlet-name>
+  <url-pattern>/rest/*</url-pattern>
+ </servlet-mapping>
+ <context-param>
+  <param-name>resteasy.scan</param-name>
+  <param-value>true</param-value>
+ </context-param>
+ <context-param>
+   <param-name>resteasy.servlet.mapping.prefix</param-name>
+   <param-value>/rest</param-value>
+ </context-param>
+ <listener>
+    <listener-class>
+       org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap
+    </listener-class>
+ </listener>
+ <servlet>
+    <servlet-name>Resteasy Servlet</servlet-name>
+    <servlet-class>
+       org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
+    </servlet-class>
+</servlet>
+
+  <!-- Security Configuration --> 
+  <security-constraint>
+        <display-name>GCU Test Application Security Constraints</display-name>
+        <web-resource-collection>
+            <web-resource-name>Protected</web-resource-name>
+    		<description>Protect all pages in Web Root</description>
+            <url-pattern>/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>GcuUser</role-name>
+        </auth-constraint>
+   </security-constraint>
+   <security-constraint>
+  		<web-resource-collection>
+    		<web-resource-name>Public</web-resource-name>
+    		<description>Do not Protect Web Services and JSF Resources</description>
+    		<url-pattern>/rest/*</url-pattern>
+   			<url-pattern>/javax.faces.resource/*</url-pattern>
+   		</web-resource-collection>
+	</security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>ApplicationRealm</realm-name>
+        <form-login-config>
+            <form-login-page>/faces/LoginForm.xhtml</form-login-page>
+            <form-error-page>/faces/LoginError.xhtml</form-error-page>
+        </form-login-config>
+    </login-config>
+   <security-role>
+        <description/>
+        <role-name>GcuUser</role-name>
+   </security-role>
+   
+  <welcome-file-list>
+    <welcome-file>TestResponse.xhtml</welcome-file>
+  </welcome-file-list>
+</web-app>
